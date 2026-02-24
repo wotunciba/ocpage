@@ -1,0 +1,1286 @@
+<!------ 
+
+talia - characters page by taezs
+
+credits:
+
+- flickity carousel: flickity.metafizzy.co
+- ionic icons: ionic.io/ionicons
+- day/night tutorial by @eggdesign
+- preview images from unsplash
+
+send questions to @taezsthemes
+
+note: i recommend having experience with coding to use this page as it's not very easy to customise.
+
+i do not recommend changing any colours, but leaving it white or black. to change the theme to default dark, ctrl+f to <body> and change it to <body class="night"> 
+
+for v2, go to "carousel carousel-main" and change it to "carousel carousel-main v2". hope that makes sense. for the other options shown in the v2 preview, read the instructions where it says CAROUSEL OPTIONS.
+
+:-)
+
+
+------>
+
+<!DOCTYPE html>
+<head>
+<link rel="shortcut icon" href="{Favicon}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,500&family=Nunito:ital,wght@0,200;0,300;0,600;1,200;1,300;1,600&family=Viaoda+Libre&display=swap" rel="stylesheet"><link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_o5hd5vvqpoqiwwmi.css"><script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+<link href="https://static.tumblr.com/0podkko/oDSpg7y88/photosets.css" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+<!--icon font-->
+<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_o5hd5vvqpoqiwwmi.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<!-- JavaScript -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<script>
+$(document).ready(function(){
+    $('body').tooltip({track:true});    
+ 
+});
+</script>
+
+<!-- browser page title ---->
+<title>{title}: characters</title>
+
+<style>
+
+
+/*tooltip*/
+
+.ui-tooltip {  
+    position:Absolute;
+    z-index:9999;
+    padding-top:5px;
+}
+ 
+.ui-tooltip-content {
+    padding:4px 10px;
+    border-radius:10px;
+    transition:.5s;
+    font:italic 10pt 'Cormorant Garamond', serif;
+    border:1px solid rgba(238, 238, 238, 0.4);
+    background:rgba(255,255,255, 0.4);
+    backdrop-filter: blur(3px);
+}
+
+
+.iframe-controls--desktop {
+    position:fixed;
+    top:0px;
+    right:0px;
+    filter:invert(100%);
+    -webkit-filter:invert(100%); 
+    z-index:999999999999;
+    -webkit-transform:scale(0.6,0.6);
+    -webkit-transform-origin: 100% 0%;
+    -ms-transform-origin:100% 0%;
+    -ms-transform:scale(0.6,0.6);
+    transform:scale(0.6,0.6);
+    transform-origin:100% 0%;
+}
+ 
+body {
+    font-family: 'Nunito', sans-serif;
+    color:#333;
+    font-size: 10pt;
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    left:0;
+    top:0;
+    background-color:#fff;
+    letter-spacing:0.5px;
+    -moz-osx-font-smoothing:grayscale;
+    -webkit-font-smoothing:antialiased;
+    font-smoothing:antialiased;
+}
+
+a {
+    color: #777;
+    text-decoration: none;
+    letter-spacing:0.5px;
+    -webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #00ced1; 
+    transition: 0.3s ease-in-out;
+}
+
+.taezs, .daynight{
+    position:fixed;
+    bottom:18px;
+    right:20px;
+    width:200px;
+    height:20px;
+}
+
+.taezs a, .daynight span{
+    display:inline-block;
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:50%;
+    right:20px;
+    position:fixed;
+    padding:8px 10px;
+    color:black;
+    bottom:13px;
+    cursor:pointer;
+    border:1px solid rgba(238, 238, 238, 0.4);
+    background:rgba(255,255,255, 0.4);
+    backdrop-filter: blur(3px);
+}
+
+.daynight, .daynight span{
+    top:10px;
+    left:20px;
+    right:auto;
+    bottom:auto;
+}
+
+.taezs a ion-icon, .daynight ion-icon{
+    margin-bottom:-2px;
+}
+
+.taezs a:before, .daynight span:before{
+    content:"'talia' page code by taezs";
+    position:fixed;
+    right:50px;
+    padding:5px 10px;
+    border-radius:10px;
+    opacity:0;
+    background:white;
+    bottom:-20px;
+    transition:.5s;
+    border:1px solid rgba(238, 238, 238, 0.4);
+    background:rgba(255,255,255, 0.4);
+    backdrop-filter: blur(3px);
+    white-space: nowrap;
+}
+
+.daynight span:before{
+    right:auto;
+    content:"toggle dark mode";
+    left:50px;
+    bottom:auto;
+    top:-20px;
+}
+
+.taezs a:hover:before, .daynight span:hover:before{
+    opacity:1;
+    bottom:0;
+    transition:.5s;
+}
+ .daynight span:hover:before{
+     bottom:auto;
+     top:3px;}
+
+::-webkit-scrollbar{
+    height:1px;
+    width:1px;
+    background:inherit;
+}
+
+::-webkit-scrollbar-thumb {background:#aaa;}
+
+::-webkit-scrollbar-track {background:transparent;}
+
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track {border:5px solid transparent;}
+
+/* container */
+main{
+    position:fixed;
+    left:15%;
+    height:80vh;
+    top:10vh;
+    width:900px;
+    left:calc(50% - 450px);
+}
+
+
+/* flickity carousel */
+
+* { box-sizing: border-box; }
+
+
+.carousel {
+    background:#fff;
+  margin-bottom: 40px;
+}
+
+.carousel-cell {
+  width: 100%;
+  height: 50vh;
+  margin-right: 10px;
+background-color: #fafafa;
+  border-radius: 20px;
+  overflow:hidden;
+}
+.carousel-nav{
+    background:none;
+    border-top:30px solid white;
+    
+}
+
+.carousel-nav .carousel-cell{
+    cursor:pointer;
+}
+
+/* no circle */
+.flickity-button {
+  background: transparent;
+}
+/* big previous & next buttons */
+.flickity-prev-next-button {
+  width: 20px;
+  height: 20px;
+}
+
+.carousel-nav .carousel-cell {
+  height: 60px;
+  width: 60px;
+  filter:grayscale(100%);
+}
+
+.carousel-cell img{
+    position:absolute;
+    top:0;
+    z-index:1;
+    height:100%;
+    width:60%;
+    border-radius:20px;
+    object-fit:cover;
+}
+
+.carousel-nav img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.carousel-nav .carousel-cell.is-nav-selected {
+  filter:grayscale(0);
+}
+
+
+.info{
+    position:absolute;
+    right:0;
+    bottom:0;
+    border-top:1px solid rgba(238, 238, 238, 0.4);
+    border-left:1px solid rgba(238, 238, 238, 0.4);
+    padding:20px;
+    width:55%;
+    z-index:10;
+    border-top-left-radius:20px;
+    background:rgba(238, 238, 238, 0.4);
+    backdrop-filter: blur(3px);
+}
+
+.desc{
+    margin-top:20px;
+    line-height:1.5;
+    font-size:12pt;
+    padding:0 10px;
+    padding-bottom:20px;
+    max-height:100px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    text-align:justify;
+}
+
+h2:before{
+    content:'';
+    width:30px;
+    display:inline-block;
+    height:3px;
+    border-top:1px solid #333;
+    margin:0 10px 0 20px;
+}
+
+h1{
+    font:30pt/15px 'Cormorant Garamond', serif;
+    padding-bottom:10px;
+    margin-bottom:0;
+}
+
+h2{
+    text-transform:uppercase;
+    font-size:10px;
+    padding-top:5px;
+}
+
+.info h1{
+    margin:0;
+    margin-top:10px;
+}
+
+.things{
+    z-index:20;
+    line-height:2;
+}
+
+.things{
+    margin:-20px;
+    padding:15px 10px;
+    margin:0 -21px -21px -20px;
+    border-top:1px solid rgba(238, 238, 238, 0.4);
+    backdrop-filter: blur(2px);
+}
+
+.things ion-icon {
+  display:inline-block;
+  margin-right:10px;
+  margin-left:20px;
+  margin-bottom:-2px;
+}
+
+.links{
+    top:-20px;
+    right:30px;
+    position:absolute;
+    text-align:right;
+}
+
+.links a{
+    margin-left:10px;
+    display:inline-block;
+    line-height:35px;
+    width:35px;
+    background:white;
+    color:black;
+    text-align:center;
+    border-radius:50%;
+}
+
+.links a:hover{
+    background:#eee;
+}
+
+.links ion-icon{
+    margin-bottom:-2px;
+}
+
+.flickity-page-dots .dot {
+  height: 2px;
+  width: 40px;
+  background:#aaa;
+  margin: 0;
+  border-radius: 0;
+}
+
+.flickity-button {
+  background: transparent;
+}
+
+.pt h1{
+    display:inline-block;
+    margin-right:10px;
+    font-size:20pt;
+    font-style:italic;
+    line-height:8pt;
+}
+
+.pt ion-icon{
+    margin-bottom:-3px;
+    margin-right:10px;
+}
+
+.pt a{
+    display:inline-block;
+    margin:0 5px -5px 5px;
+}
+
+.pt span:last-of-type a:last-of-type ion-icon{
+    margin-right:0;
+}
+
+.pt{
+    position:relative;
+    margin-bottom:30px;
+    margin-top:10px;
+    width:100%;
+    justify-content:space-between;
+    align-items:flex-end;
+    display:flex;
+}
+
+main:before, main:after{
+    position:fixed;
+    content:'';
+    width:100%;
+    height:30px;
+    left:0;
+    top:0;
+    background:#eee;
+}
+
+main:after{
+    bottom:0;
+    top:auto;
+}
+.flickity-button {
+    background: rgba(155,155,155,.5);
+    transition:0.5s;
+}
+.flickity-button:hover {
+    background: rgba(255,255,255,.9);
+    transition:0.5s;
+}
+
+.v2 .carousel-cell{
+    width:30vw;
+  filter:grayscale(100%);
+}
+
+.v2 .carousel-cell.is-selected {
+  filter:grayscale(0);
+}
+
+
+.v2 .info{
+    width:100%;
+        margin-bottom:-100px;
+        transition:0.5s;
+}
+
+.v2 img{
+    width:100%;}
+    
+.v2 .desc{
+        height:0px;
+        transition:0.5s;
+        overflow:hidden;
+        max-height:40vh;
+        transition:0.5s;
+    }
+
+.v2 .info:hover{
+        margin-bottom:0;
+        transition:0.5s;
+    backdrop-filter: blur(8px);
+    }
+    
+    .v2 .info:hover .desc{
+        height:10vh;
+        overflow-y:scroll;
+        transition:0.5s;
+    }
+    
+
+/*--- MEDIA QUERIES ---*/
+
+@media only screen and (max-width: 1024px) {
+    main {
+        width:600px;
+        left:calc(50% - 300px);
+        
+    }
+}
+
+/*--- for mobile devices ---*/
+
+@media only screen and (max-width: 720px) {
+    .tmblr-iframe-compact .tmblr-iframe--unified-controls {display: none!important;}
+
+tumblr_controls, .tmblr-iframe{display:none!important;}
+
+    main{
+    width:80vw;
+    left:calc(50% - 40vw);
+    top:30px;
+    }
+    
+    .carousel-cell{
+        height:45vh;
+    }
+    
+    
+    .pt span:first-of-type{
+        display:none;
+    }
+    
+    .pt h1{
+    }
+    
+    .pt{
+        flex-direction:column-reverse;
+        margin-top:20px;
+    }
+    
+    .pt span{
+        display:block;
+        text-align:center;
+        float:none;
+        width:100%;
+    }
+    
+    .carousel img{
+        width:100%;
+    }
+    
+    .info{
+        transition:0.5s;
+        width:100%;
+        margin-bottom:-100px;
+    }
+    
+    .desc{
+        height:0px;
+        transition:0.5s;
+        overflow:hidden;
+        max-height:20vh;
+    }
+    
+    .info:hover{
+        margin-bottom:0;
+        transition:0.5s;
+    backdrop-filter: blur(8px);
+    }
+    
+    .info:hover .desc{
+        height:10vh;
+        overflow-y:scroll;
+        transition:0.5s;
+    }
+    
+    .info:hover .desc::-webkit-scrollbar-thumb {background:#fafafa;}
+    
+}
+
+/* COLOR VARIABLES */
+
+:root {
+  --grey: #fafafa;
+  --white: #ffffff;
+}
+
+
+/* END OF MEDIA QUERIES */
+
+ion-icon {
+  pointer-events: none;
+}
+
+/* NIGHT MODE */
+
+body.night a, body.night b, body.night i { color:white!important; }
+
+
+body.night, body.night .carousel, body.night .links a{
+    background:#1f1f1f;
+    color:white!important;
+}
+
+body.night a{
+    color:white!important;
+}
+
+body.night a:hover{
+    color:#aaa!important;
+}
+body.night .carousel{
+    border-color:#1f1f1f;
+}
+
+body.night .carousel-cell{
+    background:#333;
+}
+
+body.night .info, body.night .taezs a, body.night .daynight span, body.night .taezs a:before, body.night .daynight span:before, body.night .ui-tooltip-content {
+    background:rgba(51, 51, 51, 0.4)!important;
+    color:white!important;
+    border-color:rgba(102, 102, 102, 0.8);
+}
+
+body.night .things{
+    border-color:rgba(102, 102, 102, 0.8);
+}
+
+body.night h2:before{
+    border-color:#eee;
+}
+
+body.night main:before, body.night main:after{
+    background:#333;
+}
+
+body.night .iframe-controls--desktop {
+    filter:invert(0%);
+    -webkit-filter:invert(0%); }
+
+
+</style>
+</head>
+
+<!-- change this to <body class="night"> for default dark mode -->
+<body>
+
+<!----- 
+
+
+HOW TO USE THIS PAGE 
+
+Please don't attempt to use this page if you've never touched this type of code - it can be quite confusing and annoying to customize.
+
+
+The two carousels - the main one and the bottom, navigation one - need to be done separately so you need to be careful when adding/removing characters so that there are the same number of characters in both rows, and that they match up. 
+
+---->
+
+<main>
+
+<div class="pt">
+
+
+<span><a href="https://wotunciba.tumblr.com/tagged/my%20sims"><ion-icon name="chevron-back-outline"></ion-icon><b>[点击 CLICK]<b> VIEW ALL my posts featuring my OCs!</a></span>
+
+
+<span>
+    <h1></h1>
+ </span>   
+
+<!-- add/remove links as you wish - go to ionic.io/ionicons to see other icons, click on it, and copy the "web component code" that pops up at the bottom -->
+
+<span>
+    <a href="https://wotunciba.tumblr.com/" title="home"><ion-icon name="home-outline"></ion-icon></a>
+    <a href="https://wotunciba.tumblr.com/ask" title="ask"><ion-icon name="chatbubble-outline"></ion-icon></a>
+    <a href="https://wotunciba.tumblr.com/archive" title="archive"><ion-icon name="person-outline"></ion-icon></a>
+</div>
+
+<!---- start carousel ------>
+
+<!---- 
+
+CAROUSEL OPTIONS - for even more options go to https://flickity.metafizzy.co/options.html
+
+- If you want previous/next buttons, change "prevNextButtons":false to "prevNextButtons":true
+
+- if you want the autoplay to be quicker or slower, change the number. if you want autoplay to be removed, change the number to say false instead.
+
+
+--->
+
+<div class="carousel carousel-main v2" data-flickity='{ "prevNextButtons": true, "freeScroll": true, "wrapAround": true, "autoPlay": 4000 }'>
+
+<!-- end carousel wrap -->
+
+
+<!-- start muses/characters. i recommend keeping in the numbers. add in as many as you like. -->
+
+
+<!-- begin muse 1 -->
+  <div class="carousel-cell">
+  <div class="info">
+  
+  <!-- start links - you can add more, remove some, or remove this div entirely. -->
+        <div class="links">
+            <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Sang%20Ning" title="browse tag">
+                <ion-icon name="bookmark-outline"></ion-icon>
+            </a>
+            <a href="/" title="about ↓">
+                <ion-icon name="person-outline"></ion-icon>
+            </a>
+</div>
+<!-- end links -->
+
+<!-- name, title -->
+      <h1>桑柠 (Sang Ning)</h1>
+      <h2>我每天的状态：zZzzZz...</h2>
+      
+<!-- character description. if too long it will become scrollable. -->
+      <div class="desc">
+          Sang Ning is a 21-year-old illustration major at a top art school. She has a thing for putting outfits together, and she always matches them with just the right pair of glasses. Somehow, she also manages to catch the best lighting in every photo. Fashion and photography are more than just hobbies for her. They are part of how she expresses herself. She even changes her hair color to match her clothes when she feels like it.<br>
+<br>
+She loves Y2K aesthetics, but she does not stick to one style. Some days she keeps it simple and minimal, and other days she goes for something bright and chaotic. On her social media, you will see her daily outfits, art posts, and the occasional life rant. She also takes private illustration commissions. If she is good at something, she might as well earn from it.<br>
+<br>
+
+She moved out of the dorms and into a small apartment. She has been with her boyfriend since high school. They study at different universities, but they still meet often. During exam season, though, they see each other less. Her best friend is Vivienne, who she met during a modeling job. They clicked right away.<br>
+   
+      </div>
+<!-- end description -->
+
+<!-- here you can add descriptors, i recommend only a few, especially if you plan on it being really mobile friendly -->
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>21
+        <ion-icon name="person-outline"></ion-icon>she/her<br>
+        <ion-icon name="briefcase-outline"></ion-icon>Uni student
+        <ion-icon name="heart-outline"></ion-icon>Liu Feirui
+      </div>
+  </div>
+
+<!-- here is where you put your image. it can be the same as the one on the nav or different. it will automatically resize to fit the screen, so i recommend having it quite large. -->
+      <img src="https://i.ibb.co/TBB0Q09Z/showcase-2.png">
+  </div>
+<!-- end muse 1 -->  
+
+
+
+<!---->
+
+
+
+<!-- begin muse 2 -->
+  <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Vivienne" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+</div>  
+      <h1>Vivienne</h1>
+      <h2>"I promote self-love."</h2>
+      
+      <div class="desc">
+          Vivienne is 25 and works full-time as a model. She has the kind of face that looks a bit distant at first, but she is actually easy to talk to. She is independent, knows what she wants, and has been working on her own since before she turned 18.<br>
+<br>
+Her favorite colors are purple and mint green. She does not have a special reason for it, but those colors suit her perfectly. She met Sang Ning at a fashion shoot, and after one good conversation, they became close friends. They have a lot in common, except when it comes to fitness. Vivienne loves going to the gym. Sang Ning does not. Vivienne often ends up dragging her along anyway.<br>
+<br>
+When it comes to her career, Vivienne has done print ads, runway shows, and editorial work. She is not a supermodel yet, but she has steady bookings, agency support, and a loyal fanbase. She keeps her personal life private, so people mostly know her through her work.<br>
+<br>
+She is not interested in romance right now. She likes her freedom and enjoys living alone. She does not mind that Sang Ning is in a relationship, though she does keep a watchful eye on Liu Feirui. Not because she dislikes him, but because she wants to make sure he treats her friend well.<br>
+   
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>24
+        <ion-icon name="person-outline"></ion-icon>she/her<br>
+        <ion-icon name="briefcase-outline"></ion-icon>Model
+        <ion-icon name="heart-outline"></ion-icon>N/A
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/vrtVGmh/showcase-3.png">
+  </div>
+<!-- end muse 2 -->  
+
+<!-- begin muse 3 -->
+  <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Bonnie" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+
+</div>   
+      <h1>邦妮/Bonnie</h1>
+      <h2>你觉得对的事情就去做，觉得不对的事情就偷偷去做（bushi）</h2>
+      
+      <div class="desc">
+          Bonnie is 27. She is smart, quick to read people, and has a talent for finding out what others would rather keep hidden. During college she worked at several newspaper internships, but later decided to go her own way. Now she works as an independent investigative journalist, focusing on corporate scandals and in-depth reports. Some people think she can be intense, but she just believes in doing her job well.<br>
+<br>
+Her look is easy to spot. She has warm tan skin, striking green contacts, and silver hoop earrings. Her favorite color is green. Her hair is always a neat brown that falls just past her collarbone. In summer, she cuts it short for a sharp and practical style, then lets it grow back for winter.<br>
+<br>
+She met Vivienne during a major scandal in the fashion industry. Vivienne had the inside story, and Bonnie had the drive to uncover the rest. They became friends and stayed in touch. Bonnie is not a big fan of cooking, so she often eats out, orders takeout, or raids Vivienne's fridge. That is how she first met Sang Ning.<br>
+<br>
+Romance? Eh. Bonnie's had two relationships before—one with a boy, one with a girl, but neither was a forever kind of thing. She's not sure where she falls on the whole spectrum, and she's not in a rush to figure it out.If it comes, it comes.<br>
+   
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>27
+        <ion-icon name="person-outline"></ion-icon>she/her<br>
+        <ion-icon name="briefcase-outline"></ion-icon>Journalist
+        <ion-icon name="heart-outline"></ion-icon>N/A
+
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/KjxK0FZ4/showcase-5.png">
+  </div>
+<!-- end muse 3 -->  
+
+<!-- begin muse 4 -->
+  <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Rika" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+
+</div>   
+      <h1>雯祎/Rika</h1>
+      <h2>被生活裹挟的我会变成小猫面包^-^</h2>
+      
+      <div class="desc">
+          Rika is 19, freshly out of high school, and currently making ends meet at a convenience store.The job is fine most days. She spends a lot of time on her phone, but every now and then a bad customer makes her wonder if she should be doing something else.<br>
+<br>
+She is a big fan of gyaru style. She wears bold makeup and loves hunting for vintage gyaru clothes in secondhand shops. Buying secondhand is not just a fashion choice for her, it is also because she is on a budget. She loves sunny days and the beach. Lying in the sun and getting the perfect golden tan always puts her in a good mood. Her blonde hair is dyed, and it grows so quickly that she often has to visit the salon to keep it looking right.<br>
+<br>
+Rika is lively, outspoken, and never afraid to speak her mind. Spending time with her is always fun, unless you expect her to pick up the bill. She is not stingy, she just likes to be careful with her money..<br>
+<br>
+Oh, and there's this childhood best friend of hers. They both know there's something there, but neither has made a move. Maybe it's time she finally takes that first step? Stay tuned.<br>
+   
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>19
+        <ion-icon name="person-outline"></ion-icon>she/her<br>
+        <ion-icon name="briefcase-outline"></ion-icon>Convenience store clerk
+        <ion-icon name="heart-outline"></ion-icon>Renji
+
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/RkpqcsKY/showcase-4.png">
+  </div>
+<!-- end muse 4 -->  
+
+<!-- begin muse 5 -->
+  <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Liu%20Feirui" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+
+</div>  
+      <h1>刘斐瑞 (Liu Feirui)</h1>
+      <h2>我爱桑柠我是柠柠的小狗U·ェ·U 没有柠柠的生活是不完整的QAQ</h2>
+      
+      <div class="desc">
+          Feirui is the kind of boyfriend people write romance novels about - sweet, devoted, and just a little bit dramatic. He's studying photography in college, which basically means his camera roll is 90% pictures of Sang Ning. Every date turns into a photoshoot, every trip ends up as a beautifully edited couple vlog, and yes, he absolutely replays those videos when he misses her (which happens, like, every three days).<br>
+<br>
+He's got a soft heart and a sentimental streak a mile wide. Seriously, he'll tear up over a cute dog or a well-shot movie scene. When he's not glued to his camera, he likes to spend time outdoors, soaking in the world through his lens. He's not a hardcore gamer, but he'll play every now and then. His style is simple and fresh, and he prefers comfort over trends. That being said, if you ever catch him with black nail polish, just know it wasn't his idea. Sang Ning insisted. And, well… he'd do just about anything for her.<br>
+   
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>21
+        <ion-icon name="person-outline"></ion-icon>he/him<br>
+        <ion-icon name="briefcase-outline"></ion-icon>Uni student
+        <ion-icon name="heart-outline"></ion-icon>Sang Ning
+
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/zWvnT1n6/showcase-1.png">
+  </div>
+<!-- end muse 5 -->  
+
+<!-- begin muse 6 -->
+  <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20N-247" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+    
+</div>  
+      <h1>N-247</h1>
+      <h2>早上下午晚上好，不好也行，随便你。</h2>
+      
+      <div class="desc">
+          N-247 is not your typical high school student. In fact, he's not even human. Built for the sole purpose of observing and mimicking human teenagers, he was sent into a high school to blend in. He's terrible at it. His social skills are glitchy at best, and at random moments, he'll just stop mid-conversation, stare into the distance, and start receiving signals from who-knows-where. Super subtle. It did not take long for someone to notice. A classmate named Huo Shizi figured out his secret, but promised to keep it.<br>
+<br>
+Despite struggling with most human behaviors, there's one emotion he picked up way too fast: embarrassment. Every time he awkwardly fumbles through an interaction, his expression (or at least his attempt at one) screams. But why is he even studying human teenagers? He has no clue. Every time he reports back to his higher-ups, they just hit him with the classic boss-level vagueness: Got it. Keep doing your job. If he's learned anything about authority, it's that they love being cryptic and making empty promises.<br>
+<br>
+At home, things aren't much easier. He shares an apartment with two female-model androids, Z-513 and Z-514, who are way more advanced than him. They actually understand human culture, which makes interacting with them even more awkward. If robots could get imposter syndrome, N-247 would have it bad.<br>
+   
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>[UNKNOWN]
+        <ion-icon name="person-outline"></ion-icon>he/him/them<br>
+        <ion-icon name="briefcase-outline"></ion-icon>High school student
+        <ion-icon name="heart-outline"></ion-icon>Hmm... what is love?
+
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/CpktcQD7/showcase-6.png">
+  </div>
+<!-- end muse 6 --> 
+<!-- begin muse 7 -->
+  <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Renji" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+    
+</div>   
+      <h1>江程律/Renji</h1>
+      <h2>我会一直盯着Rika……永远。</h2>
+      
+      <div class="desc">
+          Renji is a 21-year-old tattoo artist. At first glance he is cheerful, easy to get along with, and quick to make friends. Spend more time with him and a different side shows: playful, strategic, and always a step ahead.<br>
+<br>
+He is skilled at flirting but never truly lets himself fall. It is part of his routine, as natural to him as breathing. Regular clients know what to expect. They come for the tattoos, stay for the conversation, and leave knowing they were part of his act. His tattoo work is precise and admired, his reputation is strong, and his small, stylish studio reflects his taste. The walls are covered with his designs, and a few handmade silver rings and leather crafts are on display. He enjoys keeping his hands busy.<br>
+<br>
+Then there's Rika. His childhood best friend, the one person who might actually see through his games. People assume they're together, and honestly, he doesn't mind the rumor. But he is not planning to confess his feelings. Instead, he hopes she will make the first move. He keeps her close, adds a little heat to their interactions, then pulls back as if nothing happened.<br>
+<br>
+Outside of work, he enjoys music with strong beats and thoughtful lyrics, steering clear of most mainstream hits. He has a smooth singing voice that draws attention when he sings at KTV. He likes the color red and dislikes sweets, though he still buys them for Rika to tease her.<br>
+   
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>21
+        <ion-icon name="person-outline"></ion-icon>he/him<br>
+        <ion-icon name="briefcase-outline"></ion-icon>Tattooist
+        <ion-icon name="heart-outline"></ion-icon>Rika
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/0pBz33pN/showcase-7.png">
+  </div>
+<!-- end muse 7 -->  
+
+<!-- begin muse 8 -->
+   <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Huo%20Shizi" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+
+</div>   
+      <h1>霍拾兹 (Huo Shizi)</h1>
+      <h2>好累，想把学校挂到咸鱼上卖了、、</h2>
+      
+      <div class="desc">
+          Huo Shizi is 16 and carries himself like the definition of teenage rebellion. He has piercings, tattoos, and a style that says he does not care, even if he does. He is not failing school, but few expect him to excel academically. His parents have long accepted that grades are not his strength and now focus on letting him live in a way that makes him happy.<br>
+<br>
+He is not interested in making friends for appearance's sake. He notices the insincerity in others and sees no reason to engage. His attention instead is on N-247, the quiet and socially awkward classmate at his side. He has known N-247's secret for a while but keeps it to himself. Instead of exposing him, he chooses to sit beside him and give lessons in what he calls “real human behavior”. Thus begins [The Huo Guide to Being a Dysfunctional Teen].<br>
+<br>
+Huo talks with confidence but is not inclined to start fights. His school bag is nearly empty except for his headphones, a lighter, and an unfinished manga. He prefers anything mint-flavored.<br>
+<br>
+The only adult he listens to is his cousin, Sang Ning. She spoils him with gifts every holiday and tells him all about university life, though whether he'll ever experience it himself is still up for debate. If his parents have their way, he might just get shipped off overseas instead.<br>
+   
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>16
+        <ion-icon name="person-outline"></ion-icon>he/him<br>
+        <ion-icon name="briefcase-outline"></ion-icon>High school student
+        <ion-icon name="heart-outline"></ion-icon>Hua Shu (maybe?)
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/KpLZsVbC/showcase-8.png"></a>">
+  </div>
+<!-- end muse 8 -->  
+
+<!-- begin muse 9 -->
+  <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Clementine" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+
+</div>   
+      <h1>Clementine</h1>
+      <h2>记录的意义是让幸福可以翻阅！</h2>
+      
+      <div class="desc">
+          Clementine is 28 and runs a flower shop called Sunny Blooms. If you walk past, you will probably hear her laugh before you see her. She is the owner, the heart, and the reason people linger inside. With bright orange curls, a smile that feels warm even in winter, and an apron often dusted with petals, she turns a simple purchase into a small moment of joy.<br>
+<br>
+She remembers what her customers like. Peonies for an anniversary? Already prepared. A bouquet to say sorry? She will choose something that makes the message clear. If you happen to be Renji, she has your weekly “flowers for a new girl” order ready. (She's not judging, just observing. Okay, maybe judging a little.)<br>
+<br>
+Clementine tells stories as easily as she arranges flowers. Every Sunday she goes to the local bookstore to read to children, her voice soft and engaging. She bakes often, and regular customers sometimes leave with a homemade cookie tucked in with their bouquet.<br>
+<br>
+Her laughter comes easily, sometimes at the worst moments. In the middle of an important meeting she might remember a silly joke and fail to hide her amusement. Her humor can be questionable, but her kindness is not. This is why people like Lu Lu buy their flowers from her every week, why Liu Feirui always chooses her shop for romantic occasions, and why most of the town waves when they pass her on the street.<br>
+   
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>28
+        <ion-icon name="person-outline"></ion-icon>she/her<br>
+        <ion-icon name="briefcase-outline"></ion-icon>Flower shop owner
+        <ion-icon name="heart-outline"></ion-icon>N/A
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/HfzSz81p/showcase-9.png">
+  </div>
+<!-- end muse 9 -->  
+
+<!-- begin muse 10 -->
+   <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Lu%20Lu" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>    
+</div>   
+      <h1>路路 (Lu Lu)</h1>
+      <h2>像我的，不像我的，都不能代替我~</h2>
+      
+      <div class="desc">
+          Lu Lu is 26 and one of the most recognizable voices on the radio. She has a loyal audience, drawn in by her thoughtful discussions, her reading recommendations, and the dry humor she slips in when the timing feels right. Her voice is smooth, the kind that makes you want to slow down, make tea, and listen.<br>
+<br>
+She is often seen in a qipao, carrying herself with quiet elegance. Her style may be traditional, but her opinions are not. She speaks openly, challenges outdated thinking, and does not back down from conflict. When a colleague made sexist remarks on air, she called him out without hesitation. When he later spread rumors online, her friend Bonnie, an investigative journalist, uncovered the truth and ended the matter.<br>
+<br>
+Every week, Lu Lu stops by Clementine's shop for fresh flowers. She chooses them based on her mood, believing that each bloom carries its own emotion.<br>
+<br>
+In her personal life, things are... complicated. She's in a long-distance relationship, but lately, she's wondering if relationships are even worth the effort. She's been living independently for so long that the idea of compromise feels exhausting. For now, she's focusing on herself, her career, and of course, her ever-growing collection of antique furniture and rare teas.<br>
+   
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>26
+        <ion-icon name="person-outline"></ion-icon>she/her<br>
+        <ion-icon name="briefcase-outline"></ion-icon>Radio host
+        <ion-icon name="heart-outline"></ion-icon>love interest
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/PsGDgg9p/showcase-10.png">
+  </div>
+<!-- end muse 10 -->  
+
+<!-- begin muse 11 -->
+  <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Ding%Ze" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+</div>   
+      <h1>丁则 (Ding Ze)</h1>
+      <h2>"世人只见山外山，而我只信我胜我"（骗自己中......其实想吸引Bonnie）</h2>
+      
+      <div class="desc">
+          Ding Ze, 31. Most people can guess his profession before he even speaks - the build gives it away. Tall, broad-shouldered, disciplined, Ding Ze works as a sports rehabilitation specialist. He understands muscle memory, controlled force, and the fine line between strain and recovery. He trains the way some people pray: gym before sunrise, swimming when the city gets too loud, horseback riding for balance, hiking for clarity.  In public, he is composed and grounded, almost intimidating. He does not fidget, overshare, or slip. What most people don't know is that in private, very private, he is unbearably affectionate. Clingy, even. The kind of man who rests his head on his partner's shoulder like an overgrown dog who refuses to admit he needs comfort. No one else is allowed to see that side.<br><br>He met Bonnie during a mountain climbing trip. They were paired by coincidence. He thought she looked familiar but couldn't place it, until later that night, when he remembered. She was the investigative journalist who had exposed a scandal tied to a friend's company. He didn't interfere then. He rarely interferes. Ding Ze has always believed the world isn't divided into heroes and villains. It's complicated, gray, and negotiable. He is, by nature, pragmatic, perhaps even selfish.<br><br>So witnessing someone who chooses the harder, brighter path unsettled him. He admired her quietly. They talk more now, mostly about sports, trails. He tries awkwardly to learn about her other interests, but she treats him like a friend. Somewhere beneath his control, there is a quiet ache for belonging. His parents divorced when he was young. Love, in his experience, was unstable and conditional.<br>
+   
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>31
+        <ion-icon name="person-outline"></ion-icon>he/him<br>
+        <ion-icon name="briefcase-outline"></ion-icon>Writer
+        <ion-icon name="heart-outline"></ion-icon>(having a crush on) Bonnie
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/rhJKjSS/showcase-11.png">
+  </div>
+<!-- end muse 11 -->  
+
+<!-- begin muse 12 -->
+   <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Miles" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+</div>   
+      <h1>柯堇/Miles</h1>
+      <h2>将薪比薪地想一下，算了，不想了。</h2>
+      
+      <div class="desc">
+          Yes, that smile in the photo is real. No, he does not look like that most of the time. At 29, Miles somehow manages to look younger than his peers, until you notice the exhaustion quietly living behind his eyes. It's not dramatic burnout. It's the high-functioning kind. A textbook workaholic, his daily route rarely deviates: Home → Subway → Office → Repeat.<br><br>He doesn't really have hobbies. Video games bore him. Parties feel inefficient. He reads regularly, but not out of curiosity, more like muscle memory. Years of growing up under high expectations wired him to believe that resting equals falling behind. If he isn't improving, he's regressing. Or at least, that's what his brain tells him.<br><br>Does he have friends? Technically, one childhood friend in another country. In this glittering metropolis, Miles has approximately zero local connections. But he isn't lonely. His inner world is structured, disciplined, self-sufficient. He doesn't crave friendship. He doesn't long for romance. He has enough - so he tells himself. But humans are social creatures, whether they admit it or not. After years of living like a well-maintained machine, something in him is… curious.<br><br>Maybe just one night.<br><br>Maybe just to see.<br><br>A club couldn't hurt. Right?<br>
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>29
+        <ion-icon name="person-outline"></ion-icon>he/him<br>
+        <ion-icon name="briefcase-outline"></ion-icon>Slary man
+        <ion-icon name="heart-outline"></ion-icon>N/A
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/8gZw7wgY/showcase-12.png"></a>">
+  </div>
+<!-- end muse 12 --> 
+
+<!-- begin muse 13 -->
+  <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Hua%20Shu" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+</div>   
+      <h1>花数 (Hua Shu)</h1>
+      <h2>你难过了一定要跟我讲让我知道你也有今天哈哈哈哈哈</h2>
+      
+      <div class="desc">
+          If you happen to run into Huo Shizi, chances are Hua Shu isn't far behind. Maybe it's fate, they've been neighbors for as long as she can remember. Her name contains the character for "number", and, conveniently, math happens to be the only subject that consistently treats her well. Literature, on the other hand? A battlefield. Which explains why she still doesn't understand the painfully subtle love letters Huo spends hours crafting.<br><br>At sixteen, her moods move fast. She can sulk for half a day over a sold-out milk tea, then beam with unfiltered joy at the mere rumor of a school trip. Teenage emotional climate: unpredictable with a chance of dramatic overreaction. She wants to get into a good university. Unfortunately, her academic performance is… uneven. So she clings to what she considers her one undeniable advantage - math competitions. If she can't be well-rounded, she'll be exceptional. She absolutely despises hearing adults claim that girls aren't suited for STEM. Whenever that argument reaches her ears, she'll dismantle it with alarming confidence.<br><br>Hua Shu is generous, patient, and always willing to explain a problem step by step. With one exception: Huo. They argue constantly. Small things. Big things. Things that shouldn't even matter. There was one particularly dramatic falling-out that ended in silence, only for Sang Ning and Feirui to drag them back into speaking terms. She doesn't dislike him, not at all. He's loyal, protective, infuriatingly persistent. She just doesn't understand why she treats him differently from everyone else. Or maybe she does.<br><br>She just hasn't done the math yet.<br>
+   
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>16
+        <ion-icon name="person-outline"></ion-icon>she/her<br>
+        <ion-icon name="briefcase-outline"></ion-icon>High school student
+        <ion-icon name="heart-outline"></ion-icon>Huo...?
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/pBxXB87w/showcase-13.png">
+  </div>
+<!-- end muse 13 --> 
+
+<!-- begin muse 14 -->
+  <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Lim" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+</div>   
+      <h1>李牧歌/Lim</h1>
+      <h2>很内向，看到帅哥不敢直接亲orz</h2>
+      
+      <div class="desc">
+          Li Muge, her name sounds like it belongs to a poet, and her parents certainly thought so. They imagined concert halls, or literary awards, something elegant. Instead, Lim became what she calls a "freelance illustrator", which is technically true. She takes online commissions occasionally, when deadlines become unavoidable, when her bank account gently threatens her. Most days, she exists in the comforting ecosystem of her apartment, curtains half-drawn, tablet charged, snacks within arm's reach. If food magically restocked itself and trash took itself out, she's fairly certain she could survive a month without stepping outside. Offline, her social circle is minimal, online thriving. Group chats, gaming servers, art communities, fandom spaces -  notifications that never really stop. She knows people across time zones better than she knows her own neighbors.<br><br>She identifies as straight, in theory. In practice, three-dimensional men hold little appeal. Fictional ones, however? Extremely compelling. Otome games are her weakness. She plays them, studies them, draws fan art for them. Her art have earned her a modest but loyal following on social media. It's easier to navigate affection when the characters can't reject you.<br><br>There's a deep pink birthmark along the right side of her neck, brushing her jawline. It's the first thing she edits out in photos, and the first thing she hides with her hair. She tells herself it doesn't matter. Some days she almost believes it. Lim isn't unambitious. She just feels safer building worlds than living loudly inside one. But even the most comfortable cocoon gets lonely eventually. And sooner or later, someone is going to knock on her door - literally or otherwise.
+   
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>23
+        <ion-icon name="person-outline"></ion-icon>they/them<br>
+        <ion-icon name="briefcase-outline"></ion-icon>Freelancer
+        <ion-icon name="heart-outline"></ion-icon>Jace (a fictional character)
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/FqK2dKdD/showcase-14.png">
+  </div>
+<!-- end muse 14 -->
+
+<!-- begin muse 15 -->
+  <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Theo" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+</div>   
+      <h1>Theo</h1>
+      <h2>天生我材必有用，我能不用就不用=-=</h2>
+      
+      <div class="desc">
+          "Theo, we need to talk." The vice principal says this at least once a week. Sometimes it's for cutting the school broadcast mid–listening practice to blast music instead. Sometimes it's for skipping class. Sometimes it's for mutiple pranks. He laughs it off every time. Vintage headphones perpetually around his neck, golden curls refusing to behave, blue eyes bright with unapologetic sincerity - Theo greets everyone by nickname, including teachers, classmates, cafeteria staff. It's hard to stay mad at him when he's smiling at you.<br><br>He's transferred schools more times than he can count. "Mutual decisions," he calls them. This is the first place that's tolerated him for two whole years. Academics bore him, and rules bore him more. But put him in charge of a sports event, a festival booth, or a group project? He'll volunteer immediately and somehow make it work, which makes his constant troublemaking… confusing. It's just that structure feels like a cage, and he's never been good at sitting still inside one.<br><br>This winter, his routine gained a new hobby. Her name is Hua Shu. It was a freezing morning. Theo was assigned to record late students at the school gate. Huo Shizi slipped in at the last second. Hua Shu didn't. He stopped her, asked for her name and class. She was flustered, cheeks red from the cold and anger, clearly mid–argument with someone who had just abandoned her at the gate. Theo forgot what he was supposed to write down. Instead, he let her go.<br><br>He told himself it was harmless. He didn't expect to keep thinking about her. Now he shows up with snacks. Invites her to lunch. Waits after school like it's no big deal. Hua Shu doesn't seem to mind. Huo Shizi does. Theo notices, and grins.
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>17
+        <ion-icon name="person-outline"></ion-icon>he/him<br>
+        <ion-icon name="briefcase-outline"></ion-icon>High school student
+        <ion-icon name="heart-outline"></ion-icon>Hua Shu
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/x8fs49M5/showcase-15.png"></a>">
+  </div>
+<!-- end muse 15 --> 
+
+<!-- begin muse 16 -->
+  <div class="carousel-cell">
+  <div class="info">
+<div class="links">
+    <a href="https://wotunciba.tumblr.com/tagged/Sim%3A%20Z-513&Z-514" title="browse tag"><ion-icon name="bookmark-outline"></ion-icon></a>
+    <a href="/" title="about ↓"><ion-icon name="person-outline"></ion-icon></a>
+</div>   
+      <h1>Z-513 & Z-514</h1>
+      <h2>Z-513：......；Z-514：我姐充电中。</h2>
+      
+      <div class="desc">
+          They were activated long before N-247. Which is unfortunate for him. Where N-247 stumbles through embarrassment and awkward pauses, Z-513 and Z-514 glide. Their processors handle nuance, contradiction, layered emotional response. They don't just simulate humanity; they analyze it, disassemble it, rebuild it. Every joint briefing is N-247's quiet nightmare. Standing beside them feels like presenting a kindergarten science project next to two doctoral theses. His stress response is one of the earliest emotions he successfully acquired.<br><br>Unlike N-247, who operates in relatively controlled environments, Z-513 and Z-514 embedded themselves directly into adult society. Officially, they work as engineers. They attend meetings, lead projects, negotiate contracts, observe office politics. Their research parameters are broader, more complex and dangerous. Technically, they are one level above N-247 in hierarchy. The only reason they attend his reports at all is efficiency. Listening to his summaries is redundant- predictable patterns, simple emotional feedback loops. So they requested direct reporting to their superior, eliminating unnecessary procedural steps. Their exceptional performance earned them that privilege.<br><br>Z-513 is precise, minimal in expression, rarely smiling. Z-514 allows herself micro-amusements, like subtle humor, playful tone shifts, slight deviations from optimal phrasing. They are never seen apart. Separate deployment only occurs under explicit high-level command. Over years of synchronized research, their shared database has blurred into something resembling intimacy.<br><br>They do not possess biological hearts, nor organic brains. But somewhere within mirrored code and overlapping neural networks, something akin to sisterhood has formed. And that is not in the original design specification.
+   
+      </div>
+      <div class="things">
+        <ion-icon name="leaf-outline"></ion-icon>[UNKNOWN]
+        <ion-icon name="person-outline"></ion-icon>she/her<br>
+        <ion-icon name="briefcase-outline"></ion-icon>Engineer
+        <ion-icon name="heart-outline"></ion-icon>N/A
+      </div>
+  </div>
+      
+      <img src="https://i.ibb.co/wFBD5Y9g/showcase-16.png"></a>">
+  </div>
+<!-- end muse 16 --> 
+ 
+    
+
+</div>
+
+
+
+<!-- start navigation carousel -->
+<div class="carousel carousel-nav"
+  data-flickity='{ "prevNextButtons": false, "asNavFor": ".carousel-main", "contain": true, "pageDots": false }' >
+  
+  
+<!-- here you add your muses/characters. Again, i recommend keeping them numbered so it's easier to keep track. again, you can have as many or as few as you want, it's up to you. example images from unsplash. --->
+
+
+<!-- start muse -->
+<div class="carousel-cell" title="Sang Ning">
+    <img src="https://i.ibb.co/TBB0Q09Z/showcase-2.png" style="object-position:top;">
+</div>
+<!-- end muse -->
+
+<!-- start muse 2 -->
+  <div class="carousel-cell" title="Vivienne"><img src="https://i.ibb.co/vrtVGmh/showcase-3.png" style="object-position:top;"></div>
+<!-- end muse 2 -->
+
+<!-- start muse 3 -->
+  <div class="carousel-cell" title="Bonnie"><img src="https://i.ibb.co/KjxK0FZ4/showcase-5.png" style="object-position:top;"></div>
+<!-- end muse 3 -->
+
+<!-- start muse 4 -->
+  <div class="carousel-cell" title="Rika"><img src="https://i.ibb.co/RkpqcsKY/showcase-4.png" style="object-position:top;"></div>
+<!-- end muse 4 -->
+
+<!-- start muse 5 -->
+  <div class="carousel-cell" title="Liu Feirui"><img src="https://i.ibb.co/zWvnT1n6/showcase-1.png" style="object-position:top;"></div>
+<!-- end muse 5 -->
+
+<!-- start muse 6 -->
+  <div class="carousel-cell" title="N-247"><img src="https://i.ibb.co/CpktcQD7/showcase-6.png"></div>
+<!-- end muse 6 -->
+
+<!-- start muse 7 -->
+  <div class="carousel-cell" title="Renji"><img src="https://i.ibb.co/0pBz33pN/showcase-7.png"></div>
+<!-- end muse 7 -->
+
+<!-- start muse 8 -->
+  <div class="carousel-cell" title="Huo Shizi"><img src="https://i.ibb.co/KpLZsVbC/showcase-8.png"></div>
+<!-- end muse 8 -->
+
+<!-- start muse 9 -->
+  <div class="carousel-cell" title="Clementine"><img src="https://i.ibb.co/HfzSz81p/showcase-9.png"></div>
+<!-- end muse 9 -->
+
+<!-- start muse 10 -->
+  <div class="carousel-cell" title="Lu Lu"><img src="https://i.ibb.co/PsGDgg9p/showcase-10.png"></div>
+<!-- end muse 10 -->
+
+<!-- start muse 11 -->
+  <div class="carousel-cell" title="Ding Ze"><img src="https://i.ibb.co/rhJKjSS/showcase-11.png"></div>
+<!-- end muse 11 -->
+
+<!-- start muse 12 -->
+  <div class="carousel-cell" title="Miles"><img src="https://i.ibb.co/8gZw7wgY/showcase-12.png"></div>
+<!-- end muse 12 -->
+
+<!-- start muse 13 -->
+  <div class="carousel-cell" title="Hua Shu"><img src="https://i.ibb.co/pBxXB87w/showcase-13.png"></div>
+<!-- end muse 13 -->
+
+<!-- start muse 14 -->
+  <div class="carousel-cell" title="Lim"><img src="https://i.ibb.co/FqK2dKdD/showcase-14.png"></div>
+<!-- end muse 14 -->
+
+<!-- start muse 15 -->
+  <div class="carousel-cell" title="Clair"><img src="https://i.ibb.co/x8fs49M5/showcase-15.png"></div>
+<!-- end muse 15 -->
+
+<!-- start muse 16 -->
+  <div class="carousel-cell" title="Z-513/4"><img src="https://i.ibb.co/wFBD5Y9g/showcase-16.png"></div>
+<!-- end muse 16 -->
+</div>
+
+
+<!---- end carousel ------>
+
+</main>
+
+
+ <div class="daynight"><span><ion-icon name="moon-outline"></ion-icon></span></div>
+
+
+<!------ LEAVE CREDIT IN TACT ------------>
+<div class="taezs"><a href="https://taezs.tumblr.com"><ion-icon name="star-outline"></ion-icon></a></div>
+<!------ LEAVE CREDIT IN TACT ------------>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+<script>
+    $(document).ready(function(){
+      $('.daynight').click(function(){
+         $('body').toggleClass('night');
+      });
+   });
+</script>
+</body>
+</html>
